@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haus of NYCO</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            background: transparent;
+            font-size: 14px;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .featured-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .featured-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 3rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .featured-product {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .featured-product:hover .featured-image {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .featured-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .featured-name {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .featured-price {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .about-section {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .about-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 1200px) {
+            .featured-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 42px;
+            }
+
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-bg"></div>
+
+    <nav>
+        <div class="nav-left">
+            <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Haus of NYCO</h1>
+                <p>From smart wireless and USB port to open ear headsets, we offer a curated collection of innovative audio products.</p>
+                <a href="products.html" class="cta-button">View Products</a>
+				<a href="contact.html" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <h2 class="featured-title">Featured Products</h2>
+            <p class="featured-subtitle">Discover our most popular audio solutions</p>
+            <div class="featured-grid" id="featuredGrid">
+                <div class="featured-product">
+                    <div class="featured-image"></div>
+                    <div class="featured-name">Loading...</div>
+                </div>
+            </div>
+        </section> 
+
+        <section class="about-section" id="about">
+            <h2 class="about-title">About NYCO Audio</h2>
+            <p class="about-text">
+                NYCO Audio is dedicated to bringing premium audio experiences to everyday listeners. 
+                We curate the finest wireless headphones, USB audio interfaces, and open-ear headsets 
+                from leading manufacturers worldwide. Every product in our collection is selected for its 
+                quality, innovation, and performance to ensure you get the best sound possible.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 NYCO Audio. All rights reserved. | <a href="contact.html">Contact</a> | <a href="products.html">Products</a></p>
+		<p>Designed By Dynaframe Studios</p>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script>
+        window.renderFeatured = function() {
+            const grid = document.getElementById("featuredGrid");
+            if (!grid || !products) return;
+            
+            const featured = products.slice(0, 4);
+            grid.innerHTML = featured.map(p => `
+                <div class="featured-product" onclick="window.location.href='products.html'">
+                    <div class="featured-image">
+                        <img src="${p.image}" alt="${p.name}" style="max-width: 100%; max-height: 100%;">
+                    </div>
+                    <div class="featured-name">${p.name}</div>
+                </div>
+            `).join("");
+        };
+        
+        window.renderFeatured();
+    </script>
+</body>
+</html>
