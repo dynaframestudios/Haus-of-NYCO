@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haus of NYCO</title>
@@ -172,15 +173,48 @@
     <div class="logo-bg"></div>
 
     <nav>
-        <div class="nav-left">
-            <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Left: Logo -->
+    <div class="nav-left">
+        <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+    </div>
+
+    <!-- Center: Search bar -->
+    <div class="nav-search">
+        <input type="text" id="searchInput" placeholder="Search products…">
+        <button onclick="performSearch()">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+
+    <!-- Right: Desktop links (hidden on mobile) -->
+    <ul class="nav-links desktop-nav">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <!-- Burger button (visible on mobile) -->
+    <div class="burger" id="burgerBtn">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</nav>
+
+<!-- Mobile menu (hidden by default) -->
+<div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <!-- Social icons inside the mobile menu -->
+        <li class="mobile-social">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        </li>
+    </ul>
+</div>
 
     <main>
         <section class="hero">
@@ -237,6 +271,38 @@
         };
         
         window.renderFeatured();
+		
+		 // Burger toggle
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if (burger && mobileMenu) {
+        burger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // Search function (redirects to products page)
+    function performSearch() {
+        const query = document.getElementById('searchInput').value.trim();
+        if (query !== '') {
+            window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+        }
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
+</script>
     </script>
+	
 </body>
 </html>
