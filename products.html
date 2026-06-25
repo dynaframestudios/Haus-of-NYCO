@@ -1,58 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Haus of NYCO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="logo-bg"></div>
 
     <nav>
-    <!-- Left: Logo -->
-    <div class="nav-left">
-        <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+        <div class="nav-left">
+            <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+        </div>
+
+        <div class="nav-search">
+            <input type="text" id="navSearchInput" placeholder="Search products…">
+            <button onclick="performSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links desktop-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="burger" id="burgerBtn">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="mobile-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
     </div>
-
-    <!-- Center: Search bar -->
-    <div class="nav-search">
-        <input type="text" id="searchInput" placeholder="Search products…">
-        <button onclick="performSearch()">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
-
-    <!-- Right: Desktop links (hidden on mobile) -->
-    <ul class="nav-links desktop-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html" class="active">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <!-- Burger button (visible on mobile) -->
-    <div class="burger" id="burgerBtn">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-</nav>
-
-<!-- Mobile menu (hidden by default) -->
-<div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <!-- Social icons inside the mobile menu -->
-        <li class="mobile-social">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        </li>
-    </ul>
-</div>
 
     <main>
         <div class="filter-bar">
@@ -106,10 +100,11 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 NYCO Audio. All rights reserved.</p>
+        <p>&copy; 2026 NYCO Audio. All rights reserved. | <a href="contact.html">Contact</a> | <a href="index.html">Home</a></p>
+        <p>Designed By Dynaframe Studios</p>
     </footer>
 
-      <script src="products-data.js"></script>
+    <script src="products-data.js"></script>
     <script>
         let currentProduct = null;
         const allProducts = products;
@@ -189,54 +184,49 @@
  
         renderProducts();
 
-    // Burger toggle
-    const burger = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+        // Mobile menu toggle
+        const burger = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-    if (burger && mobileMenu) {
-        burger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+        if (burger && mobileMenu) {
+            burger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
             });
-        });
-    }
 
-    // Override the search behavior for the navbar search (don't redirect, just filter)
-    // We keep the existing 'input' listener for live filtering.
-    // We just need to handle the 'Enter' key and button click on this page to do nothing (since input handles it).
-    // But let's also read the URL parameter on page load.
-    
-    // Read search query from URL (if coming from homepage)
-    document.addEventListener('DOMContentLoaded', function() {
-        const params = new URLSearchParams(window.location.search);
-        const searchQuery = params.get('search');
-        if (searchQuery) {
-            const input = document.getElementById('searchInput');
-            if (input) {
-                input.value = searchQuery;
-                // Trigger the existing 'input' event to filter products
-                input.dispatchEvent(new Event('input'));
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Search function for navbar
+        function performSearch() {
+            const query = document.getElementById('navSearchInput').value.trim();
+            if (query !== '') {
+                document.getElementById('searchInput').value = query;
+                document.getElementById('searchInput').dispatchEvent(new Event('input'));
             }
         }
-    });
 
-    // Optional: If you want the navbar search button to filter too (instead of redirect),
-    // redefine performSearch for this page, but since the input listener already filters,
-    // you don't really need it. The existing input listener covers it.
-    // Just make sure the search button doesn't redirect.
-    // We'll override the global performSearch function just for this page:
-    window.performSearch = function() {
-        // Do nothing, because the input listener handles it live.
-        // Or we could trigger the input event manually:
-        const input = document.getElementById('searchInput');
-        if (input) {
-            input.dispatchEvent(new Event('input'));
-        }
-    };
+        document.getElementById('navSearchInput').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Read search query from URL (if coming from homepage)
+        window.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const searchQuery = params.get('search');
+            if (searchQuery) {
+                const input = document.getElementById('searchInput');
+                if (input) {
+                    input.value = searchQuery;
+                    input.dispatchEvent(new Event('input'));
+                }
+            }
+        });
     </script>
 </body>
 </html>

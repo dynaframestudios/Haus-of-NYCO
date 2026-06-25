@@ -1,220 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haus of NYCO</title>
+    <title>Haus of NYCO - Premium Audio Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .hero {
-            min-height: calc(100vh - 70px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-        }
-
-        .hero-content h1 {
-            font-size: 64px;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -2px;
-            line-height: 1.1;
-        }
-
-        .hero-content p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 14px 32px;
-            border: 1px solid #fff;
-            border-radius: 4px;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-            cursor: pointer;
-            background: transparent;
-            font-size: 14px;
-        }
-
-        .cta-button:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .featured-section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .featured-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .featured-subtitle {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 3rem;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .featured-product {
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .featured-product:hover .featured-image {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .featured-image {
-            width: 100%;
-            aspect-ratio: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: all 0.3s;
-            overflow: hidden;
-        }
-
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            padding: 20px;
-        }
-
-        .featured-name {
-            font-size: 14px;
-            color: #fff;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-        }
-
-        .featured-price {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .about-section {
-            padding: 4rem 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .about-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.6);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        @media (max-width: 1200px) {
-            .featured-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 42px;
-            }
-
-            .featured-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 32px;
-            }
-
-            .featured-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="logo-bg"></div>
 
     <nav>
-    <!-- Left: Logo -->
-    <div class="nav-left">
-        <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+        <div class="nav-left">
+            <img src="assets/logo.jpeg" alt="Haus of NYCO" style="height: 40px; object-fit: contain;">
+        </div>
+
+        <div class="nav-search">
+            <input type="text" id="searchInput" placeholder="Search products…">
+            <button onclick="performSearch()">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <ul class="nav-links desktop-nav">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="burger" id="burgerBtn">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li class="mobile-social">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
     </div>
-
-    <!-- Center: Search bar -->
-    <div class="nav-search">
-        <input type="text" id="searchInput" placeholder="Search products…">
-        <button onclick="performSearch()">
-            <i class="fas fa-search"></i>
-        </button>
-    </div>
-
-    <!-- Right: Desktop links (hidden on mobile) -->
-    <ul class="nav-links desktop-nav">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-
-    <!-- Burger button (visible on mobile) -->
-    <div class="burger" id="burgerBtn">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-    </div>
-</nav>
-
-<!-- Mobile menu (hidden by default) -->
-<div class="mobile-menu" id="mobileMenu">
-    <ul class="mobile-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <!-- Social icons inside the mobile menu -->
-        <li class="mobile-social">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-        </li>
-    </ul>
-</div>
 
     <main>
         <section class="hero">
@@ -222,7 +54,7 @@
                 <h1>Haus of NYCO</h1>
                 <p>From smart wireless and USB port to open ear headsets, we offer a curated collection of innovative audio products.</p>
                 <a href="products.html" class="cta-button">View Products</a>
-				<a href="contact.html" class="cta-button">Contact Us</a>
+                <a href="contact.html" class="cta-button">Contact Us</a>
             </div>
         </section>
 
@@ -235,9 +67,9 @@
                     <div class="featured-name">Loading...</div>
                 </div>
             </div>
-        </section> 
+        </section>
 
-        <section class="about-section" id="about">
+        <section class="about-section">
             <h2 class="about-title">About NYCO Audio</h2>
             <p class="about-text">
                 NYCO Audio is dedicated to bringing premium audio experiences to everyday listeners. 
@@ -250,7 +82,7 @@
 
     <footer>
         <p>&copy; 2026 NYCO Audio. All rights reserved. | <a href="contact.html">Contact</a> | <a href="products.html">Products</a></p>
-		<p>Designed By Dynaframe Studios</p>
+        <p>Designed By Dynaframe Studios</p>
     </footer>
 
     <script src="products-data.js"></script>
@@ -271,38 +103,36 @@
         };
         
         window.renderFeatured();
-		
-		 // Burger toggle
-    const burger = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
 
-    if (burger && mobileMenu) {
-        burger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-        });
+        // Mobile menu toggle
+        const burger = document.getElementById('burgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
+        if (burger && mobileMenu) {
+            burger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
             });
+
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Search function
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (query !== '') {
+                window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+
+        document.getElementById('searchInput').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
         });
-    }
-
-    // Search function (redirects to products page)
-    function performSearch() {
-        const query = document.getElementById('searchInput').value.trim();
-        if (query !== '') {
-            window.location.href = `products.html?search=${encodeURIComponent(query)}`;
-        }
-    }
-
-    document.getElementById('searchInput').addEventListener('keyup', (e) => {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
-    });
-</script>
     </script>
-	
 </body>
 </html>
