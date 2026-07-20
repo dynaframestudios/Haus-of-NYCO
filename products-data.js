@@ -1,30 +1,36 @@
 const products = [
   {
     id: 1,
-    name: "Product 1",
-    battery: "8 hours",
-    image: "image1.png",
-    colors: ["#000000", "#FFFFFF", "#1A1A1A"],
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    tags: ["bluetooth", "pods"]
+    name: "Focus A6",
+    battery: "75 hours",
+    image: "assets/image1.jpeg",
+    colors: ["#000000"],
+    features: ["App Customization", "Noise Reduction", "Cinema/Game Mode Sound Effect Modes","Bluetooth 6.0", "Aux Port", "Smart Dual Device Connection"],
+    tags: ["bluetooth", "aux"]
   },
   {
     id: 2,
-    name: "Product 2",
-    battery: "10 hours",
-    image: "image2.png",
-    colors: ["#000000", "#FFFFFF"],
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    tags: ["bluetooth", "earphones"]
+    name: "Focus A6",
+    battery: "75 hours",
+    image: "assets/image2.jpeg",
+    colors: ["#FFFFFF"],
+    features: ["App Customization", "Noise Reduction", "Cinema/Game Mode Sound Effect Modes", "Bluetooth 6.0", "Aux Port", "Smart Dual Device Connection"],
+    tags: ["bluetooth", "aux"]
   },
-  {
-    id: 3,
-    name: "Product 3",
-    battery: "12 hours",
-    image: "image3.png",
-    colors: ["#000000", "#FFFFFF", "#333333"],
-    features: ["Feature 1", "Feature 2", "Feature 3"],
-    tags: ["battery", "pods"]
+   {
+  id: 3,
+  name: "Open Ear Arco",
+  battery: "5+ hours music, 5+ hours talk",
+  image: "assets/image3.jpeg",
+  colors: ["#F5C6CE", "#E8D5B7", "#1A1A1A", "#C4B5A0"], // Pink, Beige, Black, Light brown
+  features: [
+    "Bluetooth 6.0",
+    "10m connect range",
+    "IPX5 waterproof",
+    "Smart dual device connection",
+    "1.5H case charging / 1H earbud charging"
+  ],
+  tags: ["bluetooth", "open-ear", "wireless", "sport"]
   },
   {
     id: 4,
