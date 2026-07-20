@@ -30,13 +30,13 @@ const products = [
     "Smart dual device connection",
     "1.5H case charging / 1H earbud charging"
   ],
-  tags: ["bluetooth", "open-ear", "wireless", "sport"]
+  tags: ["bluetooth", "open-ear", "wireless"]
   },
   {
     id: 4,
     name: "Product 4",
     battery: "9 hours",
-    image: "image4.png",
+    image: "assets/image4.png",
     colors: ["#000000", "#FFFFFF"],
     features: ["Feature 1", "Feature 2", "Feature 3"],
     tags: ["aux", "earphones"]
