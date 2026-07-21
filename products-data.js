@@ -67,5 +67,32 @@ const products = [
    colors: ["#F5C6CE", "#E8D5B7", "#1A1A1A", "#C4B5A0"],
    features: ["Bluetooth 6.0", "10m connect range", "IPX5 waterproof", "Smart dual device connection", "1.5H case charging / 1H earbud charging"],
    tags: ["bluetooth", "open-ear", "wireless"]
+  },
+   {
+    id: 8,
+    name: "Product 8",
+    battery: "Wired",
+    image: "assets/image8.jpeg",
+    colors: ["#000000"],
+    features: ["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone", "40mm Audio Driver"],
+    tags: ["aux", "earphones"]
+  },
+  {
+    id: 9,
+    name: "Product 9",
+    battery: "5 hours+",
+    image: "assets/image9.jpeg",
+    colors: ["#000000"],
+    features:["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone"] ,
+    tags: ["bluetooth", "open-ear"]
+  },
+  {
+    id: 10,
+    name: "Product 10",
+    battery: "5 hours+",
+    image: "assets/image10.jpeg",
+    colors: ["#000000"],
+    features:["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone"] ,
+    tags: ["bluetooth", "headphones"]
   }
 ];
