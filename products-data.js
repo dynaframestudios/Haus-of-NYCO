@@ -70,12 +70,12 @@ const products = [
   },
    {
     id: 8,
-    name: "Product 8",
-    battery: "Wired",
+    name: "Casual Sports Wear Open Ear Air G6",
+    battery: "20 hours",
     image: "assets/image8.jpeg",
     colors: ["#000000"],
-    features: ["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone", "40mm Audio Driver"],
-    tags: ["aux", "earphones"]
+    features: ["IPX5 Air Conduction", "Bluetooth 6.0", "AI Noise Reduction"],
+    tags: ["battery", "bluetooth"]
   },
   {
     id: 9,
