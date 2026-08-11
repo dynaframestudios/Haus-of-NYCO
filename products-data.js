@@ -79,20 +79,11 @@ const products = [
   },
   {
     id: 9,
-    name: "Product 9",
-    battery: "5 hours+",
+    name: "Over Ear Wired Headphones Pro 10",
+    battery: "Wired",
     image: "assets/image9.jpeg",
-    colors: ["#000000"],
-    features:["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone"] ,
-    tags: ["bluetooth", "open-ear"]
-  },
-  {
-    id: 10,
-    name: "Product 10",
-    battery: "5 hours+",
-    image: "assets/image10.jpeg",
-    colors: ["#000000"],
-    features:["270 Boom Mic", "Inline Volume Control", "Noise Cancelling Microphone"] ,
-    tags: ["bluetooth", "headphones"]
+    colors: ["#A52A2A"],
+    features: ["App Customization", "Noise Reduction", "Cinema/Game Mode Sound Effect Modes","Aux", "Sm art Dual Device Connection"],
+    tags: ["Bluetooth", "aux"]
   }
 ];
