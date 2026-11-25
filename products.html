@@ -54,6 +54,11 @@
     </div>
 
     <main>
+        <section class="about-section catalogue-intro">
+            <h1 class="about-title">Explore Our Audio Collection</h1>
+            <p class="about-text">Find audio that suits your everyday needs. From wireless and open-ear listening to wired computer headphones, our range brings together different designs and connectivity options for music, entertainment, study and work.</p>
+            <p class="about-text">Use the filters or search for a product by name. Select any product to learn more about its features, battery life and available colours, and discover which listening experience is right for you.</p>
+        </section>
         <div class="filter-bar">
             <input 
                 type="text" 
@@ -83,6 +88,10 @@
         <h2 class="info-title" id="infoTitle">Product Name</h2>
         
         <div class="info-section">
+            <div class="info-section-title">About this product</div>
+            <p class="product-description" id="productDescription"></p>
+        </div>
+        <div class="info-section">
             <div class="info-section-title">Available colors</div>
             <div class="color-options" id="colorOptions"></div>
         </div>
@@ -105,6 +114,7 @@
     </div>
 
     <footer>
+        <p>Häus of NYCO — Audio for the way you live, work and listen.</p>
         <p>&copy; 2026 Häus Of NYCO. All rights reserved. | <a href="contact.html">Contact</a> | <a href="index.html">Home</a></p>
         <p>Designed By Dynaframe Studios</p>
     </footer>
@@ -122,6 +132,7 @@
                         <img src="${p.image}" alt="${p.name}">
                     </div>
                     <div class="product-name">${p.name}</div>
+                    <p class="product-summary">${p.summary}</p>
                 </div>
             `).join("");
         }
@@ -135,6 +146,7 @@
             
             document.getElementById("infoPanelImg").src = currentProduct.image;
             document.getElementById("infoTitle").textContent = currentProduct.name;
+            document.getElementById("productDescription").textContent = currentProduct.description;
             document.getElementById("batteryLife").textContent = currentProduct.battery;
             
             document.getElementById("colorOptions").innerHTML = currentProduct.colors

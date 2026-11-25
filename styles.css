@@ -1005,3 +1005,11 @@ footer a:hover {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
+/* Content refinement: retain existing palette and typography. */
+.catalogue-intro { border-top: 0; padding-bottom: 0; }
+.featured-subtitle { max-width: 760px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+.product-summary { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.65); margin-top: .65rem; max-width: 240px; }
+.product-description { font-size: 14px; line-height: 1.75; color: rgba(255,255,255,.7); }
+.contact-subtitle { line-height: 1.75; }
+.contact-subtitle + .contact-subtitle { margin-top: -1.75rem; }
